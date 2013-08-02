@@ -11,6 +11,8 @@ object GeoIPBuild extends Build {
     version :=  "1.2.9",
     crossPaths := false,
 
+    scalaVersion := "2.9.3",
+
     sourceGenerators in Compile <+= (version, sourceManaged in Compile) map { (version, out) =>
       val zip = new URL("http://www.maxmind.com/download/geoip/api/java/GeoIPJava-%s.zip" format (version))
       IO.unzipURL(zip, out)
